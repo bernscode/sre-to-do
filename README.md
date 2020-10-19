@@ -1,2 +1,2 @@
 # sre-to-do
-SRE to-do list React, Node, and AWS app.
+SRE to-do list app using React, Node, and AWS.
