@@ -1,0 +1,29 @@
+{
+  "name": "sre-to-do",
+  "version": "1.0.0",
+  "description": "SRE to-do list React, Node, and AWS app.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bernscode/sre-to-do.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bernscode/sre-to-do/issues"
+  },
+  "homepage": "https://github.com/bernscode/sre-to-do#readme",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next": "^9.5.5",
+    "nprogress": "^0.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
