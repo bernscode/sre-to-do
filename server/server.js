@@ -1,17 +1,15 @@
 // build server with express
 const express = require('express');
 
-
 const app = express();
 
 
+// import routes
+const authRoutes = require('./routes/auth');
 
 
-app.get('/api/register', (req, res) => {
-  res.json({
-    data: 'you hit register endpoint'
-  });
-});
+// middlewares, code to run in the middle
+app.use('/api', authRoutes);
 
 
 
