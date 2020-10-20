@@ -24,8 +24,12 @@ const authRoutes = require('./routes/auth');
 app.use(morgan('dev'));
 // used to pass JSON
 app.use(bodyParser.json());
+
+
 // for front-end to communicate with back-end API
-app.use(cors());
+// app.use(cors());
+// explicit URL
+app.use(cors({origin: process.env.CLIENT_URL}));
 
 
 // middlewares, code to run in the middle

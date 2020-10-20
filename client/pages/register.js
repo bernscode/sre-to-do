@@ -2,6 +2,8 @@
 import {useState} from 'react';
 
 import Layout from '../components/Layout';
+// used for sending data from client to server
+import axios from 'axios';
 
 
 // function Home() {
@@ -27,16 +29,24 @@ const Register = () => {
 
 
   const handleChange = (name) => (e) => {
-    setState({...state, [name]: e.target.value, error: '', success: '', buttonText:'Register'})
-  }
+    setState({...state, [name]: e.target.value, error: '', success: '', buttonText:'Register'});
+  };
 
 
   const handleSubmit = (e) => {
     // prevents page reload
-    e.preventDefault()
+    e.preventDefault();
     // info sent to server
-    console.table({ name, email, password});
-  }
+    // console.table({ name, email, password});
+    axios.post('http://localhost:8000/api/register', {
+      name,
+      email,
+      password
+    })
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
+  };
 
 
   const registerForm = () => (
