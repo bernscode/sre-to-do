@@ -5,6 +5,9 @@ const AWS = require('aws-sdk');
 // import json web token for email confirmation
 // NOTE: All JWT codes in .env are random
 const jwt = require('jsonwebtoken');
+// import registration email function
+const { registerEmailParams } = require('../helpers/email');
+
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -41,43 +44,26 @@ exports.register = (req, res) => {
 
 
     // send email
-    const params = {
-      Source: process.env.EMAIL_FROM,
-      Destination: {
-        ToAddresses: [email]
-      },
-      ReplyToAddresses: [process.env.EMAIL_TO],
-      Message: {
-        Body: {
-          Html: {
-              Charset: 'UTF-8',
-              Data: `
-              <html>
-                  <h1>Vefiry your email address</h1>
-                  <p>Please use the following link to complete your registration:</p>
-                  <p>${process.env.CLIENT_URL}/auth/activate/${token}</p>
-              </html>
-          `
-          }
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: 'Complete your registration'
-        }
-      }
+    //this function is in helpers/email.js
+    const params = registerEmailParams(email, token);
 
-    };
+
 
     const sendEmailOnRegister = ses.sendEmail(params).promise();
 
     sendEmailOnRegister
     .then(data => {
       console.log('email submitted to SES', data);
-      res.send('Email sent');
+      // send JSON response
+      res.json({
+        message: `Email has been sent to ${email}, Follow the instructions to complete your registration`
+      });
     })
     .catch(error => {
       console.log('ses email on register', error);
-      res.json('Email failed');
+      res.json({
+        error: `We could not find your email. Please try again`
+      });
     });
 
 
