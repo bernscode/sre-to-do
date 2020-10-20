@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
     data: String,
     default: ''
   }
-}, {timestamps:true})
+}, {timestamps:true});
 
 
 
@@ -59,10 +59,9 @@ userSchema.virtual('password')
     this.hashed_password = this.encryptPassword(password);
 
   })
-
   .get(function() {
-    return this._password
-  })
+    return this._password;
+  });
 
 
 // methods > authenticate, encryptPassword, makeSalt
@@ -74,7 +73,7 @@ userSchema.methods = {
   },
 
   encryptPassword: function(password) {
-    if(!password) return ''
+    if(!password) return '';
     try {
       return crypto.createHmac('sha1', this.salt)
                    .update(password)
@@ -89,7 +88,7 @@ userSchema.methods = {
     return Math.round(new Date().valueOf() * Math.random()) + '';
   }
 
-}
+};
 
 // export 'User' model based on userSchema
 module.exports = mongoose.model('User', userSchema);
