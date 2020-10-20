@@ -1,8 +1,17 @@
 # sre-to-do
 SRE to-do list app using React, Node, and AWS.
 
+Tech used:
 
-Database: Mongo Atlas
+ReactJS
+NodeJS
+NextJS
+Bootstrap 4
+NPM
+Mongoose
+Express
+Mongo Atlas Database
+AWS (SES, S3, and EC2)
 
 
 To run code:
