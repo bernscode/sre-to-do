@@ -13,4 +13,4 @@ client:
 
 server:
 1. Run 'npm install' on terminal in server directory.
-2. Run 'npm run dev' on terminal in server directory.
+2. Run 'npm start' on terminal in server directory.

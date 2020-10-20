@@ -15,6 +15,18 @@ require('dotenv').config();
 const app = express();
 
 
+
+// Database
+mongoose
+  // { useNewUrlParser: true, useUnifiedTopology: true } added due to deprecation warning from terminal
+  .connect(process.env.DATABASE_CLOUD, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('DB connected'))
+  .catch( (err) => console.log(err));
+
+
+
+
+
 // import routes
 const authRoutes = require('./routes/auth');
 
