@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 
 // refactor above function with arrow function
 //replace <div> with <Layout>
-const Home = () => <Layout>SRE To-do List</Layout>;
+const Home = () => <Layout>SRE Task Manager</Layout>;
 
 
 export default Home;
