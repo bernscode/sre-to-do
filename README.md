@@ -1,5 +1,5 @@
 # sre-to-do
-SRE to-do list app using React, Node, and AWS.
+SRE Task Manager App using React, Node, and AWS.
 
 Tech used:
 
