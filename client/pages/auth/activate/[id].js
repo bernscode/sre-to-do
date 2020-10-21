@@ -1,4 +1,3 @@
-// useEffect is a life cycle method used with hooks. It's used when a component mounts and unmounts
 import { useState, useEffect } from 'react';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
@@ -7,7 +6,6 @@ import { API } from '../../../config';
 import { withRouter } from 'next/router';
 import Layout from '../../../components/Layout';
 
-// grab router from the props
 const ActivateAccount = ({ router }) => {
     const [state, setState] = useState({
         name: '',
@@ -44,7 +42,7 @@ const ActivateAccount = ({ router }) => {
         <Layout>
             <div className="row">
                 <div className="col-md-6 offset-md-3">
-                    <h1>Hey {name}! Click the button below to activate your account.</h1>
+                    <h1>G'day {name}, Ready to activate your account?</h1>
                     <br />
                     {success && showSuccessMessage(success)}
                     {error && showErrorMessage(error)}
